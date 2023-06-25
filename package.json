@@ -8,7 +8,7 @@
     "/**/*"
   ],
   "scripts": {
-    "build": "ttsc -p tsconfig.build.json",
+    "build": "tspc -p tsconfig.build.json",
     "test": "jest --silent --env=jsdom",
     "lint": "eslint --ext .js,.ts src",
     "semantic-release": "semantic-release"
