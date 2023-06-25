@@ -40,7 +40,7 @@
   "dependencies": {
     "lodash-es": "^4.17.21",
     "mousetrap": "^1.6.5",
-    "strongly-typed-events": "^2.1.5"
+    "strongly-typed-events": "^3.0.0"
   },
   "repository": {
     "type": "git",
