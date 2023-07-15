@@ -1,7 +1,7 @@
 import {Currency} from "./Currency";
 import {CurrencyType} from "./CurrencyType";
 
-import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+// import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {IgtFeature} from "@/ig-template/features/IgtFeature";
 import {WalletSaveData} from "@/ig-template/features/wallet/WalletSaveData";
 
@@ -9,7 +9,7 @@ export class IgtWallet extends IgtFeature {
     protected _currencies: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
     protected _multipliers: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
 
-    protected _onCurrencyGain = new SimpleEventDispatcher<Currency>();
+    // protected _onCurrencyGain = new SimpleEventDispatcher<Currency>();
 
     protected readonly _supportedCurrencies: CurrencyType[];
 
@@ -43,7 +43,7 @@ export class IgtWallet extends IgtFeature {
             return;
         }
 
-        this._onCurrencyGain.dispatch(currency);
+        // this._onCurrencyGain.dispatch(currency);
         this._currencies[currency.type] += currency.amount;
     }
 
@@ -162,7 +162,7 @@ export class IgtWallet extends IgtFeature {
     /**
      * Emitted whenever a currency is gained
      */
-    public get onCurrencyGain(): ISimpleEvent<Currency> {
-        return this._onCurrencyGain.asEvent();
-    }
+    // public get onCurrencyGain(): ISimpleEvent<Currency> {
+    //     return this._onCurrencyGain.asEvent();
+    // }
 }

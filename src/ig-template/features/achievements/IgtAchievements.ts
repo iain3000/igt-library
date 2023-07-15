@@ -2,7 +2,7 @@ import {Achievement} from "@/ig-template/features/achievements/Achievement";
 import {AchievementId} from "@/ig-template/features/achievements/AchievementId";
 import {IgtFeature} from "@/ig-template/features/IgtFeature";
 import {AchievementsSaveData} from "@/ig-template/features/achievements/AchievementSaveData";
-import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+// import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 
 export class IgtAchievements extends IgtFeature {
     list: Record<AchievementId, Achievement>
@@ -11,14 +11,14 @@ export class IgtAchievements extends IgtFeature {
     protected readonly ACHIEVEMENT_CHECK_TIME: number = 2.0;
     protected _checkCounter: number = 0;
 
-    protected _onUnlock = new SimpleEventDispatcher<Achievement>();
+    // protected _onUnlock = new SimpleEventDispatcher<Achievement>();
 
     /**
      * Emitted whenever an achievement is unlocked.
      */
-    public get onUnlock(): ISimpleEvent<Achievement> {
-        return this._onUnlock.asEvent();
-    }
+    // public get onUnlock(): ISimpleEvent<Achievement> {
+    //     return this._onUnlock.asEvent();
+    // }
 
     constructor(saveKey: string = 'achievements') {
         super(saveKey)
@@ -39,7 +39,7 @@ export class IgtAchievements extends IgtFeature {
             if (achievement.requirementsCompleted()) {
                 const isJustUnlocked = achievement.unlock();
                 if (isJustUnlocked) {
-                    this._onUnlock.dispatch(achievement);
+                    // this._onUnlock.dispatch(achievement);
                 }
             }
         }

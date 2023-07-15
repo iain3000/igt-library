@@ -1,6 +1,6 @@
 import {IgtFeature} from "@/ig-template/features/IgtFeature";
 import {SaveData} from "@/ig-template/tools/saving/SaveData";
-import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+// import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {WeeklySpecialEvent} from "@/ig-template/features/special-events/WeeklySpecialEvent";
 import {AbstractSpecialEvent} from "@/ig-template/features/special-events/AbstractSpecialEvent";
 
@@ -12,8 +12,8 @@ export class IgtSpecialEvents extends IgtFeature {
     protected readonly SPECIAL_EVENT_CHECK_TIME: number = 1.0;
     protected _checkCounter: number = 0;
 
-    protected _onEventStart = new SimpleEventDispatcher<AbstractSpecialEvent>();
-    protected _onEventEnd = new SimpleEventDispatcher<AbstractSpecialEvent>();
+    // protected _onEventStart = new SimpleEventDispatcher<AbstractSpecialEvent>();
+    // protected _onEventEnd = new SimpleEventDispatcher<AbstractSpecialEvent>();
 
     constructor(saveKey: string = 'special-events') {
         super(saveKey);
@@ -46,11 +46,11 @@ export class IgtSpecialEvents extends IgtFeature {
         const now = new Date();
         for (const event of this.events) {
             if (event.canStart(now)) {
-                this._onEventStart.dispatch(event);
+                // this._onEventStart.dispatch(event);
                 event.start();
             }
             if (event.canEnd(now)) {
-                this._onEventEnd.dispatch(event);
+                // this._onEventEnd.dispatch(event);
                 event.end();
             }
         }
@@ -68,16 +68,16 @@ export class IgtSpecialEvents extends IgtFeature {
     /**
      * Emitted whenever an event starts
      */
-    public get onEventStart(): ISimpleEvent<AbstractSpecialEvent> {
-        return this._onEventStart.asEvent();
-    }
+    // public get onEventStart(): ISimpleEvent<AbstractSpecialEvent> {
+    //     return this._onEventStart.asEvent();
+    // }
 
     /**
      * Emitted whenever an event end
      */
-    public get onEventEnd(): ISimpleEvent<AbstractSpecialEvent> {
-        return this._onEventEnd.asEvent();
-    }
+    // public get onEventEnd(): ISimpleEvent<AbstractSpecialEvent> {
+    //     return this._onEventEnd.asEvent();
+    // }
 
 
 }

@@ -1,4 +1,4 @@
-import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+// import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {Progress} from "@/ig-template/tools/requirements/Progress";
 import {Requirement} from "@/ig-template/tools/requirements/Requirement";
 import {NoRequirement} from "@/ig-template/tools/requirements/NoRequirement";
@@ -14,7 +14,7 @@ export abstract class IgtAction {
     requirement: Requirement;
 
     // One iteration done
-    private _onCompletion = new SimpleEventDispatcher<IgtAction>();
+    // private _onCompletion = new SimpleEventDispatcher<IgtAction>();
 
     protected constructor(description: string, duration: number, repeat: number = Infinity, requirement: Requirement = new NoRequirement()) {
         this.description = description;
@@ -40,7 +40,7 @@ export abstract class IgtAction {
     }
 
     complete(): void {
-        this._onCompletion.dispatch(this);
+        // this._onCompletion.dispatch(this);
         const canRepeat: boolean = this.gainReward();
         if (canRepeat && this.repeat > 0) {
             this.repeatAction();
@@ -93,7 +93,7 @@ export abstract class IgtAction {
      */
     abstract gainReward(): boolean;
 
-    public get onCompletion(): ISimpleEvent<IgtAction> {
-        return this._onCompletion.asEvent();
-    }
+    // public get onCompletion(): ISimpleEvent<IgtAction> {
+    //     return this._onCompletion.asEvent();
+    // }
 }

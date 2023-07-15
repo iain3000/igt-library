@@ -1,5 +1,5 @@
 import {IgtFeature} from "@/ig-template/features/IgtFeature";
-import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+// import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {KeyItem} from "@/ig-template/features/key-items/KeyItem";
 import {KeyItemId} from "@/ig-template/features/key-items/KeyItemId";
 import {KeyItemSaveData} from "@/ig-template/features/key-items/KeyItemSaveData";
@@ -7,7 +7,7 @@ import {KeyItemSaveData} from "@/ig-template/features/key-items/KeyItemSaveData"
 export class IgtKeyItems extends IgtFeature {
     list: Record<KeyItemId, KeyItem>
 
-    protected _onKeyItemGain = new SimpleEventDispatcher<KeyItem>();
+    // protected _onKeyItemGain = new SimpleEventDispatcher<KeyItem>();
 
     constructor(saveKey: string = 'key-items') {
         super(saveKey);
@@ -35,16 +35,16 @@ export class IgtKeyItems extends IgtFeature {
         }
         const didUnlock = item.unlock();
         if (didUnlock) {
-            this._onKeyItemGain.dispatch(item);
+            // this._onKeyItemGain.dispatch(item);
         }
     }
 
     /**
      * Emitted whenever a currency is gained
      */
-    public get onKeyItemGain(): ISimpleEvent<KeyItem> {
-        return this._onKeyItemGain.asEvent();
-    }
+    // public get onKeyItemGain(): ISimpleEvent<KeyItem> {
+    //     return this._onKeyItemGain.asEvent();
+    // }
 
     load(data: KeyItemSaveData): void {
         data.list?.forEach(id => {

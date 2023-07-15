@@ -10,7 +10,7 @@ import {AbstractItem} from "@/ig-template/features/items/AbstractItem";
 import {EmptyItem} from "@/ig-template/features/items/EmptyItem";
 import {InventorySaveData} from "@/ig-template/features/inventory/InventorySaveData";
 import {InventorySlotSaveData} from "@/ig-template/features/inventory/InventorySlotSaveData";
-import {EventDispatcher, IEvent} from "strongly-typed-events";
+// import {EventDispatcher, IEvent} from "strongly-typed-events";
 import {ItemAmount} from "@/ig-template/features/items/ItemAmount";
 
 export class IgtInventory extends IgtFeature {
@@ -20,7 +20,7 @@ export class IgtInventory extends IgtFeature {
     // Overridden in initialize;
     _itemList: IgtItemList = undefined as unknown as IgtItemList;
 
-    protected _onItemGain = new EventDispatcher<AbstractItem, number>();
+    // protected _onItemGain = new EventDispatcher<AbstractItem, number>();
 
     constructor(slots: number = 10, saveKey: string = 'inventory') {
         super(saveKey);
@@ -127,7 +127,7 @@ export class IgtInventory extends IgtFeature {
 
     public gainItem(item: AbstractItem, amount: number = 1): number {
         const amountLeft = this._gainItem(item, amount);
-        this._onItemGain.dispatch(item, amount);
+        // this._onItemGain.dispatch(item, amount);
         return amountLeft;
     }
 
@@ -298,9 +298,9 @@ export class IgtInventory extends IgtFeature {
     /**
      * Emitted whenever this inventory gains items (even if it can't take them).
      */
-    public get onItemGain(): IEvent<AbstractItem, number> {
-        return this._onItemGain.asEvent();
-    }
+    // public get onItemGain(): IEvent<AbstractItem, number> {
+    //     return this._onItemGain.asEvent();
+    // }
 
     load(data: InventorySaveData): void {
         if (!data.slots) {
