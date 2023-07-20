@@ -6,17 +6,33 @@ import {IgtFeature} from "@/ig-template/features/IgtFeature";
 import {WalletSaveData} from "@/ig-template/features/wallet/WalletSaveData";
 
 export class IgtWallet extends IgtFeature {
-    protected _currencies: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
-    protected _multipliers: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
+    private __currencies: Record<CurrencyType, number> = {} as Record<CurrencyType, number>;
+    protected get _currencies(): Record<CurrencyType, number> {
+        return this.__currencies;
+    }
+    protected set _currencies(value: Record<CurrencyType, number>) {
+        this.__currencies = value;
+    }
+
+    private __multipliers: Record<CurrencyType, number> = {} as Record<CurrencyType, number>;
+    protected get _multipliers(): Record<CurrencyType, number> {
+        return this.__multipliers;
+    }
+    protected set _multipliers(value: Record<CurrencyType, number>) {
+        this.__multipliers = value;
+    }
 
     protected _onCurrencyGain = new SimpleEventDispatcher<Currency>();
 
-    protected readonly _supportedCurrencies: CurrencyType[];
+    private readonly __supportedCurrencies = [] as CurrencyType[];
+    protected get _supportedCurrencies(): CurrencyType[] {
+        return this.__supportedCurrencies;
+    }    
 
     constructor(supportedCurrencies: CurrencyType[], saveKey: string = "wallet") {
         super(saveKey);
 
-        this._supportedCurrencies = supportedCurrencies;
+        this.__supportedCurrencies = supportedCurrencies;
 
         // Initialize currencies and multipliers
         for (const type of this._supportedCurrencies) {
