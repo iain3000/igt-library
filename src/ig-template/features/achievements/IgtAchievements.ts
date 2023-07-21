@@ -5,7 +5,7 @@ import {AchievementsSaveData} from "@/ig-template/features/achievements/Achievem
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 
 export class IgtAchievements extends IgtFeature {
-    list: Record<AchievementId, Achievement>
+    accessor list: Record<AchievementId, Achievement>
 
     // Delay between checking for achievements
     protected readonly ACHIEVEMENT_CHECK_TIME: number = 2.0;

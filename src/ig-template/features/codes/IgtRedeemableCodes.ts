@@ -4,7 +4,7 @@ import {RedeemableCodesSaveData} from "@/ig-template/features/codes/RedeemableCo
 
 export class IgtRedeemableCodes extends IgtFeature {
 
-    list: RedeemableCode[];
+    accessor list: RedeemableCode[];
 
     constructor(saveKey: string = 'redeemable-codes') {
         super(saveKey)
