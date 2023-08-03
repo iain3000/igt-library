@@ -6,7 +6,7 @@ import {AbstractSpecialEvent} from "@/ig-template/features/special-events/Abstra
 
 export class IgtSpecialEvents extends IgtFeature {
 
-    events: AbstractSpecialEvent[]
+    accessor events: AbstractSpecialEvent[]
 
     // Delay between checking for special events
     protected readonly SPECIAL_EVENT_CHECK_TIME: number = 1.0;

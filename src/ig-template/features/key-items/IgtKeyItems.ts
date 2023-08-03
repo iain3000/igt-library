@@ -5,7 +5,7 @@ import {KeyItemId} from "@/ig-template/features/key-items/KeyItemId";
 import {KeyItemSaveData} from "@/ig-template/features/key-items/KeyItemSaveData";
 
 export class IgtKeyItems extends IgtFeature {
-    list: Record<KeyItemId, KeyItem>
+    accessor list: Record<KeyItemId, KeyItem>
 
     protected _onKeyItemGain = new SimpleEventDispatcher<KeyItem>();
 

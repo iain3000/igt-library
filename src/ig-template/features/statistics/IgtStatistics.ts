@@ -11,7 +11,7 @@ import {DictStatistic} from "@/ig-template/features/statistics/DictStatistic";
 
 export class IgtStatistics extends IgtFeature {
 
-    list: Record<StatisticId, AbstractStatistic>
+    accessor list: Record<StatisticId, AbstractStatistic>
 
     constructor(saveKey: string = "statistics") {
         super(saveKey);

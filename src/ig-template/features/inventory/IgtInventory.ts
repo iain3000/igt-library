@@ -14,8 +14,8 @@ import {EventDispatcher, IEvent} from "strongly-typed-events";
 import {ItemAmount} from "@/ig-template/features/items/ItemAmount";
 
 export class IgtInventory extends IgtFeature {
-    slotCount: number;
-    slots: InventorySlot[];
+    accessor slotCount: number;
+    accessor slots: InventorySlot[];
 
     // Overridden in initialize;
     _itemList: IgtItemList = undefined as unknown as IgtItemList;

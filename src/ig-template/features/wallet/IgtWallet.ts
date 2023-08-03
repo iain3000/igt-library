@@ -6,12 +6,12 @@ import {IgtFeature} from "@/ig-template/features/IgtFeature";
 import {WalletSaveData} from "@/ig-template/features/wallet/WalletSaveData";
 
 export class IgtWallet extends IgtFeature {
-    protected _currencies: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
-    protected _multipliers: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
+    protected accessor _currencies: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
+    protected accessor _multipliers: Record<CurrencyType, number> = {} as Record<CurrencyType, number>
 
     protected _onCurrencyGain = new SimpleEventDispatcher<Currency>();
 
-    protected readonly _supportedCurrencies: CurrencyType[];
+    protected accessor _supportedCurrencies: CurrencyType[];
 
     constructor(supportedCurrencies: CurrencyType[], saveKey: string = "wallet") {
         super(saveKey);

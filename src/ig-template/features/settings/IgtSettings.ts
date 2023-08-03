@@ -5,7 +5,7 @@ import {SettingId} from "@/ig-template/features/settings/SettingId";
 import {SettingsValue} from "@/ig-template/features/settings/SettingsValueType";
 
 export class IgtSettings extends IgtFeature {
-    list: Setting[];
+    accessor list: Setting[];
 
     constructor(saveKey: string = "settings") {
         super(saveKey);
